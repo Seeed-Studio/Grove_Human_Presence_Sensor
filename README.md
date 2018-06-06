@@ -13,7 +13,7 @@ The Grove - Human Presence Sensor can be used to detect the presence of the huma
 ## Features
 
 - Basic register read/write
-- Simple detection algorithm to detect entrance, exit event and the direction.
+- Simple detection algorithm to detect the presence and movement event
 
 ## Usage Tips
 
