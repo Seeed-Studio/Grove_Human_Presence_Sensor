@@ -486,22 +486,34 @@ void PresenceDetector::loop() {
 }
 
 bool PresenceDetector::presentField1() {
-  return m_presences[0];
+  bool r = m_presences[0];
+  m_presences[0] = false;
+  return r;
 }
 
 bool PresenceDetector::presentField2() {
-  return m_presences[1];
+  bool r = m_presences[1];
+  m_presences[1] = false;
+  return r;
 }
 
 bool PresenceDetector::presentField3() {
-  return m_presences[2];
+  bool r = m_presences[2];
+  m_presences[2] = false;
+  return r;
 }
 
 bool PresenceDetector::presentField4() {
-  return m_presences[3];
+  bool r = m_presences[3];
+  m_presences[3] = false;
+  return r;
 }
-bool PresenceDetector::presentFullField() {
-  return m_presences[0] || m_presences[1] || m_presences[2] || m_presences[3];
+bool PresenceDetector::presentFullField(bool clear) {
+  if (clear) {
+    return presentField1() || presentField2() || presentField3() || presentField4();
+  } else {
+    return m_presences[0] || m_presences[1] || m_presences[2] || m_presences[3];
+  }
 }
 
 float PresenceDetector::getDerivativeOfIR1() {

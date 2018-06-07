@@ -35,8 +35,8 @@ AK9753 movementSensor;
 
 // need to adjust these sensitivities lower if you want to detect more far
 // but will introduce error detection
-float sensitivity_presence = 10.0;
-float sensitivity_movement = 10;
+float sensitivity_presence = 6.0;
+float sensitivity_movement = 10.0;
 int detect_interval = 30; //milliseconds
 PresenceDetector detector(movementSensor, sensitivity_presence, sensitivity_movement, detect_interval);
 
@@ -66,18 +66,24 @@ void loop()
   if (now - last_time > 100) {
 #if 0
     //see the derivative of a specific channel when you're adjusting the threshold
-    Serial.print("der1: ");
-    Serial.println(detector.getDerivativeOfIR1());
-#endif
-    if (detector.presentFullField()) {
-      Serial.print(detector.presentField1()?"x":"o");
-      Serial.print(detector.presentField2()?"x":"o");
-      Serial.print(detector.presentField3()?"x":"o");
-      Serial.print(detector.presentField4()?"x":"o");
+    //open the Serial Plotter
+    Serial.print(detector.getDerivativeOfIR1());
+    Serial.print(" ");
+    Serial.print(detector.getDerivativeOfIR2());
+    Serial.print(" ");
+    Serial.print(detector.getDerivativeOfIR3());
+    Serial.print(" ");
+    Serial.println(detector.getDerivativeOfIR4());
+#else
+    if (detector.presentFullField(false)) {
+      Serial.print(detector.presentField1()?"x ":"o ");
+      Serial.print(detector.presentField2()?"x ":"o ");
+      Serial.print(detector.presentField3()?"x ":"o ");
+      Serial.print(detector.presentField4()?"x ":"o ");
       Serial.print(" millis: ");
       Serial.println(now);
     }
-
+#endif
     last_time = now;
   }
 

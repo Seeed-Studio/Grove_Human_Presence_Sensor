@@ -199,7 +199,8 @@ public:
   void loop();
 
   /**
-   * if an IR object is in the view of a specific sensor
+   * if an IR object is in the view of a specific sensor, clear after read
+   * @return - true: an IR object is in view (entrance event)
    */
   bool presentField1();
   bool presentField2();
@@ -207,9 +208,10 @@ public:
   bool presentField4();
 
   /**
-   * returns presentField1 || presentField2 || presentField3 || presentField4
+   * @param clear - clear after read or not
+   * @return - true: if an IR object enters any view section of this sensor
    */
-  bool presentFullField();
+  bool presentFullField(bool clear = true);
 
   float getDerivativeOfIR1();
   float getDerivativeOfIR2();
@@ -217,6 +219,7 @@ public:
   float getDerivativeOfIR4();
 
   /**
+   * Read the movement flags, clear after read
    * @return - one/OR of the MOVEMENT_FROM_X_TO_X macro
    */
   uint8_t getMovement();

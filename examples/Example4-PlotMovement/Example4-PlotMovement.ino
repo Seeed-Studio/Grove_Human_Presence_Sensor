@@ -35,7 +35,7 @@ AK9753 movementSensor;
 
 // need to adjust these sensitivities lower if you want to detect more far
 // but will introduce error detection
-float sensitivity_presence = 10.0;
+float sensitivity_presence = 6.0;
 float sensitivity_movement = 10.0;
 int detect_interval = 30; //milliseconds
 PresenceDetector detector(movementSensor, sensitivity_presence, sensitivity_movement, detect_interval);
