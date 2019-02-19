@@ -1,6 +1,6 @@
 # Grove - Human Presence Sensor
 
-[![product_image](url)](https://user-images.githubusercontent.com/5130185/52988647-0ac66600-343b-11e9-8f00-adda01de7555.png)
+![](https://user-images.githubusercontent.com/5130185/52988647-0ac66600-343b-11e9-8f00-adda01de7555.png)
 
 The Grove - Human Presence Sensor can be used to detect the presence of the human body or any other infrared objects. As it has four IR sensors, it can be used to detect the motion of the IR object and the relative position where the IR object moves. The locations of the four IR sensors are defined as:
 
