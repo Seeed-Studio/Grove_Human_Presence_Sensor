@@ -1,8 +1,6 @@
 # Grove - Human Presence Sensor
 
-TODO: fix this image when the product is launched.
-
-[![product_image](url)](http://www.seeedstudio.com)
+[![product_image](url)](https://user-images.githubusercontent.com/5130185/52988647-0ac66600-343b-11e9-8f00-adda01de7555.png)
 
 The Grove - Human Presence Sensor can be used to detect the presence of the human body or any other infrared objects. As it has four IR sensors, it can be used to detect the motion of the IR object and the relative position where the IR object moves. The locations of the four IR sensors are defined as:
 
@@ -70,9 +68,7 @@ The detection is based on the derivative of the difference value of IR1/IR3 or I
 ![plot2](https://user-images.githubusercontent.com/5130185/41027658-2dccd88e-69aa-11e8-8c32-4a94eca3f68d.png)
 
 
-TODO: fix this url when the wiki is available.
-
-For more information, please refer to [wiki page](<wiki url>).
+For more information, please refer to [wiki page](http://wiki.seeedstudio.com/Grove-Human_Presence_Sensor-AK9753/).
 
 ----
 
