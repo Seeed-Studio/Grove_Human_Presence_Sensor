@@ -408,7 +408,7 @@ PresenceDetector::PresenceDetector(
     AK9753 &sensor, 
     float threshold_presence, 
     float threshold_movement, 
-    int detect_interval = 30) :
+    int detect_interval) :
   m_interval(detect_interval),
   m_threshold_presence(threshold_presence),
   m_threshold_movement(threshold_movement)
