@@ -1,39 +1,39 @@
-/*    
- * A library for Grove - Human Presence Sensor
- *   
- * Copyright (c) 2018 seeed technology co., ltd.  
- * Author      : Jack Shao  
- * Create Time: June 2018
- * Change Log : 
- *
- * The MIT License (MIT)
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
+/*
+    A library for Grove - Human Presence Sensor
+
+    Copyright (c) 2018 seeed technology co., ltd.
+    Author      : Jack Shao
+    Create Time: June 2018
+    Change Log :
+
+    The MIT License (MIT)
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+*/
 
 #ifndef __GROVE_HUMAN_PRESENCE_SENSOR_H__
 #define __GROVE_HUMAN_PRESENCE_SENSOR_H__
 
 #if (ARDUINO >= 100)
-#include "Arduino.h"
+    #include "Arduino.h"
 #else
-#include "WProgram.h"
+    #include "WProgram.h"
 #endif
 
 #include <Wire.h>
@@ -71,7 +71,7 @@
 #define REG_EINTEN     0x1B
 #define REG_ECNTL1     0x1C
 #define REG_CNTL2      0x1D
- 
+
 /* EEPROM */
 #define REG_EKEY          0x50
 #define EEPROM_ETH13H_LSB 0x51
@@ -112,134 +112,132 @@
 #define MOVEMENT_FROM_4_TO_2 0b1000
 
 
-class AK9753
-{
-public:
-  AK9753(uint8_t i2c_addr = AK975X_DEFAULT_ADDRESS);
+class AK9753 {
+  public:
+    AK9753(uint8_t i2c_addr = AK975X_DEFAULT_ADDRESS);
 
-  bool initialize(void) ;
-  
-  uint8_t getCompanyCode(void) ;
-  uint8_t getDeviceID(void) ;
-  bool    dataReady(void) ; /* returns ST1[0], read ST2 to clear */
-  bool    dataOverRun(void) ; /* return ST1[1], read ST2, etc, to clear */
-  uint8_t getINTST(void) ; /** return REG_INTST */
-  uint8_t getST1(void) ;
-  int16_t getRawIR1(void) ;
-  float   getIR1(void) ;
-  int16_t getRawIR2(void) ;
-  float   getIR2(void) ;
-  int16_t getRawIR3(void) ;
-  float   getIR3(void) ;
-  int16_t getRawIR4(void) ;
-  float   getIR4(void) ;
-  int16_t getRawTMP(void) ;
-  float   getTMP(void) ;
-  float   getTMP_F(void) ;
-  uint8_t getST2(void) ;
-  int16_t getETH13H(void) ;
-  int16_t getETH13L(void) ;
-  int16_t getETH24H(void) ;
-  int16_t getETH24L(void) ;
-  uint8_t getEHYS13(void) ;
-  uint8_t getEHYS24(void) ;
-  uint8_t getEINTEN(void) ;
-  uint8_t getECNTL1(void) ;
-  uint8_t getCNTL2(void) ;
-  
-  int16_t ETHpAtoRaw(float pA) ;
-  void    setETH13H(int16_t value) ;
-  void    setETH13L(int16_t value) ;
-  void    setETH24H(int16_t value) ;
-  void    setETH24L(int16_t value) ;
-  uint8_t EHYSpAtoRaw(float pA) ;
-  void    setEHYS13(uint8_t value) ;
-  void    setEHYS24(uint8_t value) ;
-  void    setEINTEN(uint8_t value) ;
-  void    setECNTL1(uint8_t value) ;
+    bool initialize(void) ;
 
-  void    softReset(void) ;
+    uint8_t getCompanyCode(void) ;
+    uint8_t getDeviceID(void) ;
+    bool    dataReady(void) ; /* returns ST1[0], read ST2 to clear */
+    bool    dataOverRun(void) ; /* return ST1[1], read ST2, etc, to clear */
+    uint8_t getINTST(void) ; /** return REG_INTST */
+    uint8_t getST1(void) ;
+    int16_t getRawIR1(void) ;
+    float   getIR1(void) ;
+    int16_t getRawIR2(void) ;
+    float   getIR2(void) ;
+    int16_t getRawIR3(void) ;
+    float   getIR3(void) ;
+    int16_t getRawIR4(void) ;
+    float   getIR4(void) ;
+    int16_t getRawTMP(void) ;
+    float   getTMP(void) ;
+    float   getTMP_F(void) ;
+    uint8_t getST2(void) ;
+    int16_t getETH13H(void) ;
+    int16_t getETH13L(void) ;
+    int16_t getETH24H(void) ;
+    int16_t getETH24L(void) ;
+    uint8_t getEHYS13(void) ;
+    uint8_t getEHYS24(void) ;
+    uint8_t getEINTEN(void) ;
+    uint8_t getECNTL1(void) ;
+    uint8_t getCNTL2(void) ;
 
-  /**
-   * This is an alias of getST2(), just for friendly name
-   */
-  void    startNextSample(void) ;
-  
- 
-private:
-  TwoWire *m_i2c;
-  uint8_t m_addr;
-  int readRegs(int addr, uint8_t *data, int len);
-  int writeRegs(uint8_t *data, int len);
+    int16_t ETHpAtoRaw(float pA) ;
+    void    setETH13H(int16_t value) ;
+    void    setETH13L(int16_t value) ;
+    void    setETH24H(int16_t value) ;
+    void    setETH24L(int16_t value) ;
+    uint8_t EHYSpAtoRaw(float pA) ;
+    void    setEHYS13(uint8_t value) ;
+    void    setEHYS24(uint8_t value) ;
+    void    setEINTEN(uint8_t value) ;
+    void    setECNTL1(uint8_t value) ;
+
+    void    softReset(void) ;
+
+    /**
+        This is an alias of getST2(), just for friendly name
+    */
+    void    startNextSample(void) ;
+
+
+  private:
+    TwoWire* m_i2c;
+    uint8_t m_addr;
+    int readRegs(int addr, uint8_t* data, int len);
+    int writeRegs(uint8_t* data, int len);
 };
 
 class Smoother;
 
 #define NUM_SMOOTHER    6
 
-class PresenceDetector
-{
-public:
-  /**
-   * @param sensor - the ref of AK9753 class instance
-   * @param threshold_presence - compares with the derivative of the readings of a specific IR sensor (1/2/3/4)
-   * @param threshold_movement - compares with the derivative of the difference value between IR sensor 1-3 or 2-4
-   * @param detect_interval - the interval of the presence detection, unit: millisecond
-   */
-  PresenceDetector(
-    AK9753 &sensor, 
-    float threshold_presence = 10, 
-    float threshold_movement = 10, 
-    int detect_interval = 30);
-  ~PresenceDetector();
+class PresenceDetector {
+  public:
+    /**
+        @param sensor - the ref of AK9753 class instance
+        @param threshold_presence - compares with the derivative of the readings of a specific IR sensor (1/2/3/4)
+        @param threshold_movement - compares with the derivative of the difference value between IR sensor 1-3 or 2-4
+        @param detect_interval - the interval of the presence detection, unit: millisecond
+    */
+    PresenceDetector(
+        AK9753& sensor,
+        float threshold_presence = 10,
+        float threshold_movement = 10,
+        int detect_interval = 30);
+    ~PresenceDetector();
 
-  /**
-   * This is the driven loop of the detector, should call this as fast as possible
-   */
-  void loop();
+    /**
+        This is the driven loop of the detector, should call this as fast as possible
+    */
+    void loop();
 
-  /**
-   * if an IR object is in the view of a specific sensor, clear after read
-   * @return - true: an IR object is in view (entrance event)
-   */
-  bool presentField1();
-  bool presentField2();
-  bool presentField3();
-  bool presentField4();
+    /**
+        if an IR object is in the view of a specific sensor, clear after read
+        @return - true: an IR object is in view (entrance event)
+    */
+    bool presentField1();
+    bool presentField2();
+    bool presentField3();
+    bool presentField4();
 
-  /**
-   * @param clear - clear after read or not
-   * @return - true: if an IR object enters any view section of this sensor
-   */
-  bool presentFullField(bool clear = true);
+    /**
+        @param clear - clear after read or not
+        @return - true: if an IR object enters any view section of this sensor
+    */
+    bool presentFullField(bool clear = true);
 
-  float getDerivativeOfIR1();
-  float getDerivativeOfIR2();
-  float getDerivativeOfIR3();
-  float getDerivativeOfIR4();
+    float getDerivativeOfIR1();
+    float getDerivativeOfIR2();
+    float getDerivativeOfIR3();
+    float getDerivativeOfIR4();
 
-  /**
-   * Read the movement flags, clear after read
-   * @return - one/OR of the MOVEMENT_FROM_X_TO_X macro
-   */
-  uint8_t getMovement();
+    /**
+        Read the movement flags, clear after read
+        @return - one/OR of the MOVEMENT_FROM_X_TO_X macro
+    */
+    uint8_t getMovement();
 
-  float getDerivativeOfDiff13();
-  float getDerivativeOfDiff24();
+    float getDerivativeOfDiff13();
+    float getDerivativeOfDiff24();
 
 
-private:
-  AK9753 *m_sensor;
-  Smoother *m_smoothers[NUM_SMOOTHER];
-  int m_interval;
-  uint32_t m_last_time;
-  
-  bool m_presences[4];
-  uint8_t m_movement;
+  private:
+    AK9753* m_sensor;
+    Smoother* m_smoothers[NUM_SMOOTHER];
+    int m_interval;
+    uint32_t m_last_time;
 
-  float m_threshold_presence, m_threshold_movement;
-  float m_ders[4];
-  float m_der13, m_der24;
+    bool m_presences[4];
+    uint8_t m_movement;
+
+    float m_threshold_presence, m_threshold_movement;
+    float m_ders[4];
+    float m_der13, m_der24;
 };
 
 #endif
