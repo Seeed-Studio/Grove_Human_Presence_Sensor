@@ -1,4 +1,4 @@
-# Grove - Human Presence Sensor
+# Grove - Human Presence Sensor  [![Build Status](https://travis-ci.com/Seeed-Studio/Grove_Human_Presence_Sensor.svg?branch=master)](https://travis-ci.com/Seeed-Studio/Grove_Human_Presence_Sensor)
 
 ![](https://user-images.githubusercontent.com/5130185/52988647-0ac66600-343b-11e9-8f00-adda01de7555.png)
 
