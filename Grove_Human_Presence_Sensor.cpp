@@ -402,8 +402,8 @@ class Smoother {
     }
 
   private:
-    float m_last_marked_value;
     float m_average_weight;
+    float m_last_marked_value;
     float m_average;
 };
 
