@@ -427,7 +427,9 @@ PresenceDetector::PresenceDetector(
 }
 
 PresenceDetector::~PresenceDetector() {
-    delete[] m_smoothers;
+    for (int i = 0; i < NUM_SMOOTHER; i++) {
+        delete m_smoothers[i];
+    }
 }
 
 void PresenceDetector::loop() {
@@ -453,7 +455,7 @@ void PresenceDetector::loop() {
     m_smoothers[4]->addDataPoint(diff13);
     m_smoothers[5]->addDataPoint(diff24);
 
-    if (now - m_last_time > m_interval) {
+    if (now - m_last_time > (uint32_t) m_interval) {
         float d;
         for (int i = 0; i < 4; i++) {
             d = m_ders[i] = m_smoothers[i]->getDerivative();
